@@ -2936,11 +2936,11 @@ function! fugitive#statusline(...) abort
   if s:buffer().commit() != ''
     let status .= ':' . s:buffer().commit()[0:7]
   endif
-  let status .= '('.fugitive#head(7).')'
+  let status .= fugitive#head(7)
   if &statusline =~# '%[MRHWY]' && &statusline !~# '%[mrhwy]'
     return ',GIT'.status
   else
-    return '[Git'.status.']'
+    return '['.status.']'
   endif
 endfunction
 
